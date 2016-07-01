@@ -97,6 +97,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 			SetTimer(hWnd, 1, 10, (TIMERPROC)NULL);
 			break;
         case WM_DESTROY:
+			DeleteDC(memoryHDC);
+			DeleteObject(memoryHBMP);
             PostQuitMessage(0);
             break;
         default:
